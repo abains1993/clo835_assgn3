@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pvc-hp
+spec:
+  storageClassName: localstorage
+  capacity: 
+    storage: 4Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  # The default reclaim policy is "Delete"
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /tmp/mongodb
